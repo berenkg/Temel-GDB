@@ -137,10 +137,10 @@ Breakpoint 1, main (argc=2, argv=0x7fffffffe168) at simple2.c:12
 ```
 Programımız herhangi bir çıktı vermedi bunun sebebi main kısmında şuanda beklemektedir. gdb çıktılarından program içerisinde 2 tane argüman olduğu söyleniyor. Bunlardan bir tanesi programın yolu diğer ise KUDAY'dır. Şimdi registerlarımıza bakalım.
 
-<hr>
+
 <h3> ÖNEMLİ NOT:</h3>
 Bu yazıyı yazarken kullandığım makinem 64 bittir. Bundan dolayı kodlar derlenirken 64 bitlik adreslere göre derlenmiştir. Eğer programları direkt olarak binary halleriyle analiz yapmaya çalışırsanız. İleriki bölümlerde göreceğimiz eip, eax, ebx gibi registerler yerine rip, rax, rbx register isimleri göreceksiniz. Bunun önüne geçebilmek için programların kaynak kodlarınıda *Dosyalar* klasörü altında veriyorum. Eğer sizde 64 bit bir bilgisayar kullanıyorsanız, programları derlerken -m32 flagini ayağa kaldırmanız gerekmektedir. Yani yazacağınız komut şu şekilde olacaktır. `gcc -g -m32 kod.c -o cikti` BU şekilde kodunuz x86'ya göre derlenecektir. Hala problem yaşamaktaysanız gdb'nin analiz kısmınıda 32 bite göre ayarlamanız gerekmektedir. Bunun için ise gdb başlatıldığında `set architecture i386:x86-64:intel` komutunu vermeniz yeterli olacaktır.
-<hr>
+
 
 Eğer yukarıda yazdıklarımı başarılı bir şekilde gerçekleştirebildiyseniz `info registers' komutundan sonra aşağıdaki gibi bir çıktı alacaksınızdır.
 ```sh
@@ -256,7 +256,7 @@ Registerları nasıl dump edeceğiz diye sorabilirsiniz, aşağıda gösterilmi�
 0xffffd240:	0x00000001	0x00000000	0xf7f9f000	0xffffffff
 0xffffd250:	0xf7ffd000	0x00000000	0xf7f9f000	0xf7f9f000
 ```
-<hr>
+
 <h3> ÖNEMLİ NOT:</h3>
 Mikrodenetleyicilerle hiç uğraştınız mı bilmiyorum ama bir devre tasarlarken kristallere ihtiyaç duyarız bu şekilde frekans hesabı yaparız. Aslında burada asıl belirlenmek istenen saniyede yapılacak işlem sayısıdır. Bu görevi bilgisayarlarımızda CPU'lar üstlenmektedir. Bu kısımda anlatacağım konunun daha net anlaşılabilmesi için senaryolaştıracağım ve yazdığım her şeyi doğruymuş gibi kabul etmeden sadece mesajı almaya çalışın.
 C dili ile yazdığımız bir satırlık bir kodun assembly karşılığını gördük. Aslında gördüğümüzden de daha fazlası var örnek vermek gerekirse kullandığımız printf fonksiyonu daha öncesinden bizim için yazılmış bir fonksiyon. Bu ne anlama geliyor peki? O fonksiyonun olduğu kütüphaneyi aslında projemize dahil etmiş olduk demektir. Buraya kadar bir sıkıntı olduğunu düşünmüyorum. Şimdi size bir soru soracağım. breakpoin koyduğumuz yerden adım adım devam etmek istediğimizde printf fonksiyonunun saklandığı adrese geldiğimizde ve devam et dediğimizde gdb printf fonksiyonun kodlarının yazıldığı adreslere bir anda fırlayıp onun içinden mi devam eder yoksa o kod bloğunun komple çalıştırıp alt adresemi geçer? Daha açıklayıcı olmak için aşağıdaki çıktılara bakınız.
@@ -351,7 +351,7 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 Yukarıda görüldüğü gibi. Diğer komutları size bırakıyorum...
-<hr>
+
 
 # 5. Register Üzerine Yazma
 Aşağıdaki gibi bir kodumuzun olduğunu düşünelim ve bu kodu derleyelim.
@@ -619,9 +619,9 @@ Continuing.
 Crack![Inferior 1 (process 6703) exited normally]
 ```
 Görüldüğü üzere ekrana Crack! yazısı gelmiştir.
-<hr>
-NOT: disassembly komutu uygulanırken intel ailesine uygun syntax'ta assembly kodları göremeyebilirsiniz. Bunu düzeltmek için `set disassembly-flover intel` komutunu uygulamanız gerekmektedir.
-<hr>
+
+<h3>NOT:</h3> disassembly komutu uygulanırken intel ailesine uygun syntax'ta assembly kodları göremeyebilirsiniz. Bunu düzeltmek için `set disassembly-flover intel` komutunu uygulamanız gerekmektedir.
+
 
 # 6. SON
 Artık internetteki gdb ile alakalı araştırmalarınızda okuduklarınızı genel anlamda anlayacak kadar bilgiye sahipsiniz. Temel anlamda gdb kullanabiliyorsunuz. Umarım yararlı olmuştur. *Beren Kuday GÖRÜN*
