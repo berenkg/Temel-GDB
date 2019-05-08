@@ -1,7 +1,7 @@
-#1. Giriş
+# 1. Giriş
 Bu seride temel anlamda debug araçlarından olan gdb'den bahsedilecektir. Uygulamalarımızı geliştirme sırasında gerek sistemden olsun gerek yazılımcı tarafından olsun gelen bir takım sinyaller veya kesmeler veya hatalar yüzünden uygulamamızın çalışmasında kesilmeler olabilir. Bu gibi durumları çoğu zaman tahmin edebiliyor olmak yeterli olmayabilir. Bu gibi durumlarda en büyük yardımcımız gdb olacaktır. Linux sistemlerde yaygın olarak GBU debugger isimli uygulama kullanılır. Bu uygulama ile uygulamanızın kodu veya core dosyası incelenebilir.
 
-#2. Derleme
+# 2. Derleme
 
 ```console
 root@kali:~/Documents/GDB Serisi/1 Genel Bakis# cat simple.c 
@@ -18,7 +18,7 @@ root@kali:~/Documents/GDB Serisi/1 Genel Bakis# gcc -g simple.c -o simple_debug_
 ```
 Burada gcc ile derleme esnasında -g parametresini kullanmamızın sebebi **Symbol Dosyalarını** dahil etmek istediğizi belirtmek içindir.
 
-##2.1 Symbol Dosyaları
+## 2.1 Symbol Dosyaları
 Symbol dosyaları yazılmış olan kod ile birlikte derlenebilirken `gcc -g simple.c -o simple_debug_symbol_var` ayrı olarak da derlenebilir. Asıl amacı debug aşamasındayken yazılımcıya daha iyi bilgiler sunmasıdır. Örnek olarak derlenmiş bir kodun binary halinden tekrar kod haline ulaşmak normalde zor bir süreçtir ancak symbol dosyaları ile birlikte derlenirse, bu kodlara ulaşılabilir. Aşağıda buna bir örnek verilmiştir.
 gdb ile programımızı başlatım list komutu ile kodlarımızı görüntülemeye çalışcağız.
 
