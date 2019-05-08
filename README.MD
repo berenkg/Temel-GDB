@@ -3,7 +3,7 @@ Bu seride temel anlamda debug araçlarından olan gdb'den bahsedilecektir. Uygul
 
 # 2. Derleme
 
-```console
+```sh
 root@kali:~/Documents/GDB Serisi/1 Genel Bakis# cat simple.c 
 #include<stdio.h>
 main()
@@ -22,7 +22,7 @@ Burada gcc ile derleme esnasında -g parametresini kullanmamızın sebebi **Symb
 Symbol dosyaları yazılmış olan kod ile birlikte derlenebilirken `gcc -g simple.c -o simple_debug_symbol_var` ayrı olarak da derlenebilir. Asıl amacı debug aşamasındayken yazılımcıya daha iyi bilgiler sunmasıdır. Örnek olarak derlenmiş bir kodun binary halinden tekrar kod haline ulaşmak normalde zor bir süreçtir ancak symbol dosyaları ile birlikte derlenirse, bu kodlara ulaşılabilir. Aşağıda buna bir örnek verilmiştir.
 gdb ile programımızı başlatım list komutu ile kodlarımızı görüntülemeye çalışcağız.
 
-```console
+```sh
 root@kali:~/Documents/GDB Serisi/1 Genel Bakis# gdb simple_debug_symbol_var 
 GNU gdb (Debian 8.2-1) 8.2
 Copyright (C) 2018 Free Software Foundation, Inc.
